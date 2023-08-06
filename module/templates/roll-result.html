@@ -1,0 +1,113 @@
+<div class="dice-tooltip illuminated-worlds-die-tooltip">
+    {{#if attribute}}
+        <div class="chat-label label-stripe-chat">
+            {{attribute}}
+        </div>
+    {{/if}}
+
+    <div class="chat-label-small label-stripe-chat-small">
+        {{{localize positionLocalize}}} | {{{localize effectLocalize}}}
+    </div>
+
+    {{#if zeroMode}}
+        <div class="chat-label-small-red label-stripe-chat-small-red">
+            {{{localize "IlluminatedWorldsRoller.RollZeroMode"}}}
+        </div>
+    {{/if}}
+
+    {{#if (eq rollOutcome "critical-success")}}
+        <div class="die {{rollOutcome}}">
+            {{localize "IlluminatedWorldsRoller.RollCriticalSuccess"}}
+        </div>
+        <div class="description">
+            <p>
+                {{{localize "IlluminatedWorldsRoller.RollDoWithIncreasedEffect"}}}
+            </p>
+            {{#if (eq position "desperate")}}
+                <p>
+                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
+                </p>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    {{#if (eq rollOutcome "success")}}
+        <div class="die {{rollOutcome}}">
+            {{localize "IlluminatedWorldsRoller.RollSuccess"}}
+        </div>
+        <div class="description">
+            <p>
+                {{{localize "IlluminatedWorldsRoller.RollDo"}}}
+            </p>
+            {{#if (eq position "desperate")}}
+                <p>
+                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
+                </p>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    {{#if (eq rollOutcome "partial-success")}}
+        <div class="die {{rollOutcome}}">
+            {{localize "IlluminatedWorldsRoller.RollPartialSuccess"}}
+        </div>
+        <div class="description">
+            <p>
+                {{#if (eq position "controlled")}}
+                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPositionControlled"}}}
+                {{else if (eq position "risky")}}
+                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPositionRisky"}}}
+                {{else}}
+                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPosition"}}}
+                {{/if}}
+            </p>
+            {{#if (eq position "desperate")}}
+                <p>
+                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
+                </p>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    {{#if (eq rollOutcome "failure")}}
+        <div class="die {{rollOutcome}}">
+            {{localize "IlluminatedWorldsRoller.RollFailure"}}
+        </div>
+        <div class="description">
+            <p>
+                {{#if (eq position "controlled")}}
+                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionControlled"}}}
+                {{else if (eq position "risky")}}
+                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionRisky"}}}
+                {{else}}
+                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionDesperate"}}}
+                {{/if}}
+            </p>
+            {{#if (eq position "desperate")}}
+                <p>
+                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
+                </p>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    <ol class="dice-rolls">
+        {{#each this.rolls}}
+            {{#if this.result}}
+                <li class="roll die illuminated-worlds-d6 {{../this.color}}"
+                    {{#if (eq this.result 6)}}
+                        style="color: green;"
+                    {{else if (eq this.result 3)}}
+                        style="color: red;"
+                    {{else if (eq this.result 2)}}
+                        style="color: red;"
+                    {{else if (eq this.result 1)}}
+                        style="color: red;"
+                    {{/if}}
+                >
+                    {{{this.result}}}
+                </li>
+            {{/if}}
+        {{/each}}
+    </ol>
+</div>

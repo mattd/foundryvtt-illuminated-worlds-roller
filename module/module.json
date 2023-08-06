@@ -1,0 +1,39 @@
+{
+    "id": "illuminated-worlds-roller",
+    "title": "Illuminated Worlds Roller",
+    "description": "Provides a generic dice roller for Illuminated Worlds games.",
+    "authors": [
+        {
+            "name": "megastruktur"
+        },
+        {
+            "name": "Andrew Garinger"
+        },
+        {
+            "name": "Matt Dawson",
+            "discord": "matthewtdawson"
+        }
+    ],
+    "version": "0.1.0",
+    "minimumCoreVersion": "0.7.5",
+    "compatibleCoreVersion": "11",
+    "compatibility": {
+        "minimum": "0.7.5",
+        "verified": "11"
+    },
+
+    "styles": ["styles/illuminated-worlds-roller.css"],
+    "esmodules": ["scripts/init.mjs"],
+
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "url": "https://github.com/mattd/foundryvtt-illuminated-worlds-roller",
+    "manifest": "https://raw.githubusercontent.com/mattd/foundryvtt-illuminated-worlds-roller/main/module/module.json",
+    "download": "https://github.com/mattd/foundryvtt-illuminated-worlds-roller/releases/download/v0.1.0/build.zip",
+    "bugs": "https://github.com/mattd/foundryvtt-illuminated-worlds-roller/issues"
+}

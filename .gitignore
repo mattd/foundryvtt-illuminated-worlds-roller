@@ -1,0 +1,11 @@
+/fitd-roller.js
+module/fitd-roller.js
+build.zip
+node_modules
+
+# OS cruft
+.DS_Store
+
+# Contributor config
+.screenrc
+.dir-locals.el
