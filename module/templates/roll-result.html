@@ -47,18 +47,18 @@
         </div>
     {{/if}}
 
-    {{#if (eq rollOutcome "partial-success")}}
+    {{#if (eq rollOutcome "mixed-success")}}
         <div class="die {{rollOutcome}}">
-            {{localize "IlluminatedWorldsRoller.RollPartialSuccess"}}
+            {{localize "IlluminatedWorldsRoller.RollMixedSuccess"}}
         </div>
         <div class="description">
             <p>
                 {{#if (eq position "controlled")}}
-                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPositionControlled"}}}
+                    {{{localize "IlluminatedWorldsRoller.RollMixedSuccessPositionControlled"}}}
                 {{else if (eq position "risky")}}
-                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPositionRisky"}}}
+                    {{{localize "IlluminatedWorldsRoller.RollMixedSuccessPositionRisky"}}}
                 {{else}}
-                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPosition"}}}
+                    {{{localize "IlluminatedWorldsRoller.RollMixedSuccessPositionDesperate"}}}
                 {{/if}}
             </p>
             {{#if (eq position "desperate")}}

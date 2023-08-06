@@ -6,9 +6,9 @@ Hooks.once("ready", () => {
 
 Hooks.on("renderSceneControls", (app, html) => {
     const control = $(`
-      <li class="scene-control" title="Illuminated Worlds Roller">
-          <i class="fas fa-dice"></i>
-      </li>
+        <li class="scene-control" title="Illuminated Worlds Roller">
+            <i class="fas fa-dice"></i>
+        </li>
     `);
     control.on("click", async function () {
         await game.illuminatedWorldsRoller.showRoller();
