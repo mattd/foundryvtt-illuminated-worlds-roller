@@ -96,46 +96,22 @@ Hooks.once("setup", () => {
         }).join(',')
     });
 
-    game.settings.register("illuminated-worlds-roller", "defaultPosition", {
-        "name": game.i18n.localize(
-            "IlluminatedWorldsRoller.defaultPositionName"
-        ),
-        "hint": game.i18n.localize(
-            "IlluminatedWorldsRoller.defaultPositionHint"
-        ),
+    game.settings.register("illuminated-worlds-roller", "defaultStakes", {
+        "name": game.i18n.localize("IlluminatedWorldsRoller.defaultStakesName"),
+        "hint": game.i18n.localize("IlluminatedWorldsRoller.defaultStakesHint"),
         "scope": "world",
         "config": true,
         "type": String,
         "choices": {
-            "controlled": game.i18n.localize(
-                "IlluminatedWorldsRoller.PositionControlled"
+            "high": game.i18n.localize("IlluminatedWorldsRoller.StakesHigh"),
+            "normal": game.i18n.localize(
+                "IlluminatedWorldsRoller.StakesNormal"
             ),
-            "risky": game.i18n.localize(
-                "IlluminatedWorldsRoller.PositionRisky"
-            ),
-            "desperate": game.i18n.localize(
-                "IlluminatedWorldsRoller.PositionDesperate"
+            "low": game.i18n.localize(
+                "IlluminatedWorldsRoller.StakesLow"
             )
         },
-        "default": "risky"
-    });
-
-    game.settings.register("illuminated-worlds-roller", "defaultEffect", {
-        "name": game.i18n.localize("IlluminatedWorldsRoller.defaultEffectName"),
-        "hint": game.i18n.localize("IlluminatedWorldsRoller.defaultEffectHint"),
-        "scope": "world",
-        "config": true,
-        "type": String,
-        "choices": {
-            "great": game.i18n.localize("IlluminatedWorldsRoller.EffectGreat"),
-            "standard": game.i18n.localize(
-                "IlluminatedWorldsRoller.EffectStandard"
-            ),
-            "limited": game.i18n.localize(
-                "IlluminatedWorldsRoller.EffectLimited"
-            )
-        },
-        "default": "standard"
+        "default": "normal"
     });
 });
 

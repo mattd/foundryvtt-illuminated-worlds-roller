@@ -35,11 +35,9 @@ class IlluminatedWorldsRoller {
         const actions = game.settings.get(
             "illuminated-worlds-roller", "actions"
         );
-        const defaultPosition = game.settings.get(
-            "illuminated-worlds-roller", "defaultPosition"
+        const defaultStakes = game.settings.get(
+            "illuminated-worlds-roller", "defaultStakes"
         );
-        const defaultEffect = game.settings.get(
-            "illuminated-worlds-roller", "defaultEffect");
 
         new Dialog({
             title: `${game.i18n.localize('IlluminatedWorldsRoller.RollTitle')}`,
@@ -87,57 +85,28 @@ class IlluminatedWorldsRoller {
                     <div class="form-group">
                         <label>
                             ${game.i18n.localize(
-                                'IlluminatedWorldsRoller.Position'
+                                'IlluminatedWorldsRoller.Stakes'
                             )}:
                         </label>
-                        <select id="pos" name="pos">
-                            <option value="controlled">
+                        <select id="stakes" name="stakes">
+                            <option value="low">
                                 ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.PositionControlled'
+                                    'IlluminatedWorldsRoller.StakesLow'
                                 )}
                             </option>
-                            <option value="risky">
+                            <option value="normal">
                                 ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.PositionRisky'
+                                    'IlluminatedWorldsRoller.StakesNormal'
                                 )}
                             </option>
-                            <option value="desperate">
+                            <option value="high">
                                 ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.PositionDesperate'
+                                    'IlluminatedWorldsRoller.StakesHigh'
                                 )}
                             </option>
                         </select>
                         <script>
-                            $('#pos option[value="${defaultPosition}"]').prop(
-                                "selected", "selected"
-                            );
-                        </script>
-                    </div>
-                    <div class="form-group">
-                        <label>
-                            ${game.i18n.localize(
-                                'IlluminatedWorldsRoller.Effect'
-                            )}:
-                        </label>
-                        <select id="fx" name="fx">
-                            <option value="limited">
-                                ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.EffectLimited'
-                                )}
-                            </option>
-                            <option value="standard">
-                                ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.EffectStandard'
-                                )}
-                            </option>
-                            <option value="great">
-                                ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.EffectGreat'
-                                )}
-                            </option>
-                        </select>
-                        <script>
-                            $('#fx option[value="${defaultEffect}"]').prop(
+                            $('#stakes option[value="${defaultStakes}"]').prop(
                                 "selected", "selected"
                             );
                         </script>
@@ -153,9 +122,8 @@ class IlluminatedWorldsRoller {
                             html.find('[name="dice"]')[0].value
                         );
                         const action = html.find('[name="action"]')[0].value;
-                        const position = html.find('[name="pos"]')[0].value;
-                        const effect = html.find('[name="fx"]')[0].value;
-                        await this.roll(action, diceAmount, position, effect);
+                        const stakes = html.find('[name="stakes"]')[0].value;
+                        await this.roll(action, diceAmount, stakes);
                     }
                 },
                 no: {
@@ -171,14 +139,12 @@ class IlluminatedWorldsRoller {
      * Rolls the Dice.
      * @param {string} attribute arbitrary label for the roll
      * @param {int} diceAmount number of dice to roll
-     * @param {string} position position
-     * @param {string} effect effect
+     * @param {string} stakes stakes
      */
     async roll(
         attribute = "",
         diceAmount = 0,
-        position = "risky",
-        effect = "standard"
+        stakes = "normal"
     ) {
         let zeroMode = false;
         if (diceAmount < 0) { diceAmount = 0; }
@@ -192,7 +158,7 @@ class IlluminatedWorldsRoller {
             r.roll();
         }
         return await this.showChatRollMessage(
-            r, zeroMode, attribute, position, effect
+            r, zeroMode, attribute, stakes
         );
     }
 
@@ -202,15 +168,13 @@ class IlluminatedWorldsRoller {
      * @param {Roll} r array of rolls
      * @param {Boolean} zeroMode whether to treat as if 0d
      * @param {string} attribute arbitrary label for the roll
-     * @param {string} position position
-     * @param {string} effect effect
+     * @param {string} stakes stakes
      */
     async showChatRollMessage(
         r,
         zeroMode,
         attribute = "",
-        position = "",
-        effect = ""
+        stakes = ""
     ) {
         const speaker = ChatMessage.getSpeaker();
         const rolls = r.terms[0].results;
@@ -219,41 +183,22 @@ class IlluminatedWorldsRoller {
             "illuminated-worlds-roller", "backgroundColor"
         );
 
-        let positionLocalize = "";
-        switch (position) {
-            case "controlled":
-                positionLocalize = (
-                    "IlluminatedWorldsRoller.PositionControlled"
+        let stakesLocalize = "";
+        switch (stakes) {
+            case "low":
+                stakesLocalize = (
+                    "IlluminatedWorldsRoller.StakesLow"
                 );
                 break;
-            case "desperate":
-                positionLocalize = (
-                    "IlluminatedWorldsRoller.PositionDesperate"
-                );
-                break;
-            case "risky":
-            default:
-                positionLocalize = (
-                    "IlluminatedWorldsRoller.PositionRisky"
-                );
-        }
-
-        let effectLocalize = "";
-        switch (effect) {
-            case "limited":
-                effectLocalize = (
-                    "IlluminatedWorldsRoller.EffectLimited"
-                );
-                break;
-            case "great":
-                effectLocalize = (
-                    "IlluminatedWorldsRoller.EffectGreat"
+            case "high":
+                stakesLocalize = (
+                    "IlluminatedWorldsRoller.StakesHigh"
                 );
                 break;
             case "standard":
             default:
-                effectLocalize = (
-                    "IlluminatedWorldsRoller.EffectStandard"
+                stakesLocalize = (
+                    "IlluminatedWorldsRoller.StakesNormal"
                 );
         }
 
@@ -263,10 +208,8 @@ class IlluminatedWorldsRoller {
                 rolls,
                 rollOutcome,
                 attribute,
-                position,
-                positionLocalize,
-                effect,
-                effectLocalize,
+                stakes,
+                stakesLocalize,
                 zeroMode,
                 color
             }

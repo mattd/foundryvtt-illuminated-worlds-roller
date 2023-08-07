@@ -6,7 +6,7 @@
     {{/if}}
 
     <div class="chat-label-small label-stripe-chat-small">
-        {{{localize positionLocalize}}} | {{{localize effectLocalize}}}
+        {{{localize stakesLocalize}}}
     </div>
 
     {{#if zeroMode}}
@@ -21,13 +21,8 @@
         </div>
         <div class="description">
             <p>
-                {{{localize "IlluminatedWorldsRoller.RollDoWithIncreasedEffect"}}}
+                {{{localize "IlluminatedWorldsRoller.RollCriticalSuccessDescription"}}}
             </p>
-            {{#if (eq position "desperate")}}
-                <p>
-                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
-                </p>
-            {{/if}}
         </div>
     {{/if}}
 
@@ -37,13 +32,8 @@
         </div>
         <div class="description">
             <p>
-                {{{localize "IlluminatedWorldsRoller.RollDo"}}}
+                {{{localize "IlluminatedWorldsRoller.RollSuccessDescription"}}}
             </p>
-            {{#if (eq position "desperate")}}
-                <p>
-                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
-                </p>
-            {{/if}}
         </div>
     {{/if}}
 
@@ -53,19 +43,8 @@
         </div>
         <div class="description">
             <p>
-                {{#if (eq position "controlled")}}
-                    {{{localize "IlluminatedWorldsRoller.RollMixedSuccessPositionControlled"}}}
-                {{else if (eq position "risky")}}
-                    {{{localize "IlluminatedWorldsRoller.RollMixedSuccessPositionRisky"}}}
-                {{else}}
-                    {{{localize "IlluminatedWorldsRoller.RollMixedSuccessPositionDesperate"}}}
-                {{/if}}
+                {{{localize "IlluminatedWorldsRoller.RollMixedSuccessDescription"}}}
             </p>
-            {{#if (eq position "desperate")}}
-                <p>
-                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
-                </p>
-            {{/if}}
         </div>
     {{/if}}
 
@@ -75,19 +54,8 @@
         </div>
         <div class="description">
             <p>
-                {{#if (eq position "controlled")}}
-                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionControlled"}}}
-                {{else if (eq position "risky")}}
-                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionRisky"}}}
-                {{else}}
-                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionDesperate"}}}
-                {{/if}}
+                {{{localize "IlluminatedWorldsRoller.RollFailureDescription"}}}
             </p>
-            {{#if (eq position "desperate")}}
-                <p>
-                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
-                </p>
-            {{/if}}
         </div>
     {{/if}}
 
