@@ -22,18 +22,15 @@ Hooks.on("renderSceneControls", (app, html) => {
 
 Hooks.once("setup", () => {
     const defaultActions = [
-        'Hunt',
-        'Study',
+        'Move',
+        'Strike',
+        'Control',
+        'Sway',
+        'Read',
+        'Hide',
         'Survey',
-        'Tinker',
-        'Finesse',
-        'Prowl',
-        'Skirmish',
-        'Wreck',
-        'Attune',
-        'Command',
-        'Consort',
-        'Sway'
+        'Focus',
+        'Sense'
     ];
 
     game.settings.register("illuminated-worlds-roller", "backgroundColor", {
