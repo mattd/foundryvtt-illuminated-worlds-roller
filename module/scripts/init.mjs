@@ -6,7 +6,7 @@ Hooks.once("ready", () => {
 
 Hooks.on("renderSceneControls", (app, html) => {
     const control = $(`
-        <li class="scene-control" title="Illuminated Worlds Roller">
+        <li class="scene-control" data-tooltip="Illuminated Worlds Roller">
             <i class="fas fa-dice"></i>
         </li>
     `);
