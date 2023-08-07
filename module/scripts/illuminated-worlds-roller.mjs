@@ -50,7 +50,7 @@ class IlluminatedWorldsRoller {
                                 'IlluminatedWorldsRoller.RollNumberOfDice'
                             )}:
                         </label>
-                        <select id="dice" name="dice">
+                        <select id="standard-dice" name="standard-dice">
                             ${
                                 Array(maxDice + 1).fill().map((item, i) => {
                                     return `<option value="${i}">${i}d</option>`
@@ -58,7 +58,9 @@ class IlluminatedWorldsRoller {
                             }
                         </select>
                         <script>
-                            $('#dice option[value="${defaultDiceCount}"]').prop(
+                            $('#standard-dice').find(
+                                'option[value="${defaultDiceCount}"]'
+                            ).prop(
                                 "selected", "selected"
                             );
                         </script>
@@ -106,7 +108,9 @@ class IlluminatedWorldsRoller {
                             </option>
                         </select>
                         <script>
-                            $('#stakes option[value="${defaultStakes}"]').prop(
+                            $('#stakes').find(
+                                'option[value="${defaultStakes}"]'
+                            ).prop(
                                 "selected", "selected"
                             );
                         </script>
@@ -118,12 +122,12 @@ class IlluminatedWorldsRoller {
                     icon: "<i class='fas fa-check'></i>",
                     label: game.i18n.localize('IlluminatedWorldsRoller.Roll'),
                     callback: async (html) => {
-                        const diceAmount = parseInt(
-                            html.find('[name="dice"]')[0].value
+                        const standardDice = parseInt(
+                            html.find('[name="standard-dice"]')[0].value
                         );
                         const action = html.find('[name="action"]')[0].value;
                         const stakes = html.find('[name="stakes"]')[0].value;
-                        await this.roll(action, diceAmount, stakes);
+                        await this.roll(action, standardDice, 0, stakes);
                     }
                 },
                 no: {
@@ -143,14 +147,24 @@ class IlluminatedWorldsRoller {
      */
     async roll(
         attribute = "",
-        diceAmount = 0,
+        standardDice = 0,
+        gildedDice = 0,
         stakes = "normal"
     ) {
-        let zeroMode = false;
-        if (diceAmount < 0) { diceAmount = 0; }
-        if (diceAmount === 0) { zeroMode = true; diceAmount = 2; }
+        let zeroMode = false, gildedMode = false;
 
-        const r = new Roll(`${diceAmount}d6`, {});
+        if (standardDice < 0) { standardDice = 0; }
+        if (gildedDice < 0) { gildedDice = 0; }
+        if (standardDice === 0) { zeroMode = true; standardDice = 2; }
+        if (gildedDice > 0) { isGilded = true; }
+
+        let formula = `${standardDice}d6`;
+
+        if (gildedMode) {
+            formula += ` + ${gildedDice}d6[radiant]`
+        }
+
+        const r = new Roll(formula, {});
 
         if (this.getFoundryVersion(game).major > 7) {
             await r.evaluate({async: true});
@@ -158,7 +172,7 @@ class IlluminatedWorldsRoller {
             r.roll();
         }
         return await this.showChatRollMessage(
-            r, zeroMode, attribute, stakes
+            r, zeroMode, gildedMode, attribute, stakes
         );
     }
 
@@ -167,21 +181,32 @@ class IlluminatedWorldsRoller {
      *
      * @param {Roll} r array of rolls
      * @param {Boolean} zeroMode whether to treat as if 0d
+     * @param {Boolean} gildedMode whether to treat as a gilded roll
      * @param {string} attribute arbitrary label for the roll
      * @param {string} stakes stakes
      */
     async showChatRollMessage(
         r,
         zeroMode,
+        gildedMode,
         attribute = "",
         stakes = ""
     ) {
         const speaker = ChatMessage.getSpeaker();
-        const rolls = r.terms[0].results;
-        const rollOutcome = this.getRollOutcome(rolls, zeroMode);
         const color = game.settings.get(
             "illuminated-worlds-roller", "backgroundColor"
         );
+
+        let rolls = r.terms[0].results;
+
+        if (gildedMode) {
+            r.terms[2].results.forEach(result => {
+                result.gilded = true;
+                rolls.push(result);
+            });
+        }
+
+        const rollOutcome = this.getRollOutcome(rolls, zeroMode);
 
         let stakesLocalize = "";
         switch (stakes) {
@@ -195,7 +220,7 @@ class IlluminatedWorldsRoller {
                     "IlluminatedWorldsRoller.StakesHigh"
                 );
                 break;
-            case "standard":
+            case "normal":
             default:
                 stakesLocalize = (
                     "IlluminatedWorldsRoller.StakesNormal"
@@ -211,6 +236,7 @@ class IlluminatedWorldsRoller {
                 stakes,
                 stakesLocalize,
                 zeroMode,
+                gildedMode,
                 color
             }
         );

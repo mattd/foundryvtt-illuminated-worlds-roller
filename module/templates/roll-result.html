@@ -62,16 +62,22 @@
     <ol class="dice-rolls">
         {{#each this.rolls}}
             {{#if this.result}}
-                <li class="roll die illuminated-worlds-d6 {{../this.color}}"
-                    {{#if (eq this.result 6)}}
-                        style="color: green;"
-                    {{else if (eq this.result 3)}}
-                        style="color: red;"
-                    {{else if (eq this.result 2)}}
-                        style="color: red;"
-                    {{else if (eq this.result 1)}}
-                        style="color: red;"
-                    {{/if}}
+                <li class="
+                    roll
+                    die
+                    illuminated-worlds-d6
+                    {{#if this.gilded}}gilded{{/if}}
+                    {{../this.color}}
+                "
+                {{#if (eq this.result 6)}}
+                    style="color: green;"
+                {{else if (eq this.result 3)}}
+                    style="color: red;"
+                {{else if (eq this.result 2)}}
+                    style="color: red;"
+                {{else if (eq this.result 1)}}
+                    style="color: red;"
+                {{/if}}
                 >
                     {{{this.result}}}
                 </li>
