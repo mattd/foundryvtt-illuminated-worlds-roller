@@ -175,6 +175,13 @@
 * .illuminated-worlds-die-tooltip .description {
     font-style: italic;
 }
+* .illuminated-worlds-die-tooltip .description span.failure {
+    font-weight: bold;
+    color: red;
+}
+* .illuminated-worlds-die-tooltip .description span.mixed {
+    font-weight: bold;
+}
 * .illuminated-worlds-die-tooltip .tooltip .tooltiptext {
     visibility: hidden;
     width: 200px;
@@ -229,3 +236,5 @@
         background-image: url(../icons/d6-grey-gilded.svg) !important;
     }
 }
+
+

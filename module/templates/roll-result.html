@@ -27,9 +27,28 @@
             <p>
                 {{{localize "IlluminatedWorldsRoller.RollCriticalSuccessDescription"}}}
             </p>
-            <p>
-                {{gildedResultType}}
-            </p>
+            {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-only-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsOnlyResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-is-same-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-mixed-is-worse-than-result")}}
+                     <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedMixedIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-failure-is-worse-than-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedFailureIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
+            {{/if}}
         </div>
     {{/if}}
 
@@ -41,9 +60,28 @@
             <p>
                 {{{localize "IlluminatedWorldsRoller.RollSuccessDescription"}}}
             </p>
-            <p>
-                {{gildedResultType}}
-            </p>
+            {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-only-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsOnlyResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-is-same-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-mixed-is-worse-than-result")}}
+                     <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedMixedIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-failure-is-worse-than-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedFailureIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
+            {{/if}}
         </div>
     {{/if}}
 
@@ -56,6 +94,11 @@
                 {{{localize "IlluminatedWorldsRoller.RollMixedSuccessDescription"}}}
             </p>
             {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-only-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsOnlyResult"}}}
+                    </p>
+                {{/if}}
                 {{#if (eq gildedResultType "gilded-is-same-result")}}
                     <p>
                         {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
@@ -85,6 +128,11 @@
                 {{/if}}
             </p>
             {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-only-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsOnlyResult"}}}
+                    </p>
+                {{/if}}
                 {{#if (eq gildedResultType "gilded-is-same-result")}}
                     <p>
                         {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
