@@ -219,7 +219,13 @@
 * .dice-tooltip.illuminated-worlds-die-tooltip .dice-rolls .roll.die.illuminated-worlds-d6.black {
     background-image: url(../icons/d6-black.svg) !important;
     color: var(--almostwhite);
+    &.gilded {
+        background-image: url(../icons/d6-black-gilded.svg) !important;
+    }
 }
 * .dice-tooltip.illuminated-worlds-die-tooltip .dice-rolls .roll.die.illuminated-worlds-d6.gray {
     background-image: url(../icons/d6-grey.svg) !important;
+    &.gilded {
+        background-image: url(../icons/d6-black-gilded.svg) !important;
+    }
 }

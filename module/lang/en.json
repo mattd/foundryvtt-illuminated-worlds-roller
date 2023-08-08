@@ -5,7 +5,8 @@
   "IlluminatedWorldsRoller.Dice": "Dice",
   "IlluminatedWorldsRoller.RollTitle": "Illuminated Worlds Roller",
   "IlluminatedWorldsRoller.RollTokenDescription": "Choose your dice pool. Choose your action. Choose your position. Choose your effect.",
-  "IlluminatedWorldsRoller.RollNumberOfDice": "Number of Dice",
+  "IlluminatedWorldsRoller.StandardDice": "Standard Dice",
+  "IlluminatedWorldsRoller.GildedDice": "Gilded Dice",
 
   "IlluminatedWorldsRoller.Action": "Action",
   "IlluminatedWorldsRoller.Stakes": "Stakes",
