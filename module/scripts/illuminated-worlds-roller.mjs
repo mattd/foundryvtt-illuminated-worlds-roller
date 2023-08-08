@@ -275,6 +275,39 @@ class IlluminatedWorldsRoller {
         return rolls;
     }
 
+    getGildedResultType(rolls, rollOutcome, gildedMode) {
+        if (gildedMode === "none") { return; }
+
+        if (gildedMode === "without-standard-dice") {
+            return "gilded-is-only-result";
+        }
+
+        const gildedOutcome = this.getRollOutcome(
+            rolls.filter(roll => roll.gilded)
+        );
+
+        const outcomeRanks = {
+            "failure": 0,
+            "mixed-success": 1,
+            "success": 2,
+            "critical-success": 3
+        };
+
+        if (
+            gildedOutcome == "success" ||
+            outcomeRanks[gildedOutcome] > outcomeRanks[rollOutcome]
+        ) {
+            return "gilded-is-best-result";
+        } else if (outcomeRanks[gildedOutcome] == outcomeRanks[rollOutcome]) {
+            return "gilded-is-same-result";
+        } else {
+            if (gildedOutcome == "mixed-success") {
+                return "gilded-mixed-is-worse-than-result";
+            }
+            return "gilded-failure-is-worse-than-result";
+        }
+    }
+
     /**
      * Shows Chat message for a roll.
      *
@@ -299,6 +332,12 @@ class IlluminatedWorldsRoller {
         const rolls = this.getAnnotatedRollResults(r, gildedMode);
 
         const rollOutcome = this.getRollOutcome(rolls, zeroMode);
+
+        const gildedResultType = this.getGildedResultType(
+            rolls,
+            rollOutcome,
+            gildedMode
+        );
 
         let stakesLocalize = "";
         switch (stakes) {
@@ -329,6 +368,7 @@ class IlluminatedWorldsRoller {
                 stakesLocalize,
                 zeroMode,
                 gildedMode,
+                gildedResultType,
                 color
             }
         );

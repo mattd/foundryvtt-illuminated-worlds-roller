@@ -27,6 +27,9 @@
             <p>
                 {{{localize "IlluminatedWorldsRoller.RollCriticalSuccessDescription"}}}
             </p>
+            <p>
+                {{gildedResultType}}
+            </p>
         </div>
     {{/if}}
 
@@ -37,6 +40,9 @@
         <div class="description">
             <p>
                 {{{localize "IlluminatedWorldsRoller.RollSuccessDescription"}}}
+            </p>
+            <p>
+                {{gildedResultType}}
             </p>
         </div>
     {{/if}}
@@ -49,6 +55,18 @@
             <p>
                 {{{localize "IlluminatedWorldsRoller.RollMixedSuccessDescription"}}}
             </p>
+            {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-same-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-failure-is-worse-than-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedFailureIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
+            {{/if}}
         </div>
     {{/if}}
 
@@ -66,6 +84,13 @@
                     {{{localize "IlluminatedWorldsRoller.RollHighStakesDescription"}}}
                 {{/if}}
             </p>
+            {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-same-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
+                    </p>
+                {{/if}}
+            {{/if}}
         </div>
     {{/if}}
 
