@@ -110,6 +110,19 @@ Hooks.once("setup", () => {
         },
         "default": "normal"
     });
+
+    game.settings.register("illuminated-worlds-roller", "gildedAppearance", {
+        "name": game.i18n.localize(
+            "IlluminatedWorldsRoller.gildedAppearanceName"
+        ),
+        "hint": game.i18n.localize(
+            "IlluminatedWorldsRoller.gildedAppearanceHint"
+        ),
+        "scope": "world",
+        "config": true,
+        "type": String,
+        "default": "radiant"
+    });
 });
 
 console.log("IlluminatedWorldsRoller | Illuminated Worlds Roller loaded");

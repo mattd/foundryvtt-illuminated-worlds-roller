@@ -189,12 +189,16 @@ class IlluminatedWorldsRoller {
      * @returns {string} the roll formula for the given roll
      */
     getRollFormula(standardDice, gildedDice, gildedMode) {
+        const gildedAppearance = game.settings.get(
+            "illuminated-worlds-roller", "gildedAppearance"
+        );
+
         if (gildedMode == "none") {
             return `${standardDice}d6`;
         } else if (gildedMode == "with-standard-dice") {
-            return `${standardDice}d6 + ${gildedDice}d6[radiant]`;
+            return `${standardDice}d6 + ${gildedDice}d6[${gildedAppearance}]`;
         } else if (gildedMode == "without-standard-dice") {
-            return `${gildedDice}d6[radiant]`;
+            return `${gildedDice}d6[${gildedAppearance}]`;
         }
     }
 
@@ -249,7 +253,7 @@ class IlluminatedWorldsRoller {
      * @returns {Array} rolls an annotated array of roll results
      */
     getAnnotatedRollResults(r, gildedMode) {
-        let rolls = [];
+        const rolls = [];
 
         if (gildedMode == "none" || gildedMode == "with-standard-dice") {
             r.terms[0].results.forEach(result => {
