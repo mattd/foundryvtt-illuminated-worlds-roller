@@ -7,6 +7,10 @@
 
     <div class="chat-label-small label-stripe-chat-small">
         {{{localize stakesLocalize}}}
+        {{#if (ne gildedMode "none")}}
+            &bull;
+            {{{localize "IlluminatedWorldsRoller.Gilded"}}}
+        {{/if}}
     </div>
 
     {{#if zeroMode}}
@@ -57,9 +61,9 @@
                 {{{localize "IlluminatedWorldsRoller.RollFailureDescription"}}}
 
                 {{#if (eq stakes "low")}}
-                    {{{localize "IlluminatedWorldsRoller.RollLowStakesDescription}}}
+                    {{{localize "IlluminatedWorldsRoller.RollLowStakesDescription"}}}
                 {{else if (eq stakes "high")}}
-                    {{{localize "IlluminatedWorldsRoller.RollHighStakesDescription}}}
+                    {{{localize "IlluminatedWorldsRoller.RollHighStakesDescription"}}}
                 {{/if}}
             </p>
         </div>
