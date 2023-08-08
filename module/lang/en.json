@@ -26,22 +26,21 @@
     "IlluminatedWorldsRoller.StakesHigh": "High",
 
     "IlluminatedWorldsRoller.RollFailure": "Failure",
-    "IlluminatedWorldsRoller.RollFailureDescription": "Failure Description",
+    "IlluminatedWorldsRoller.RollFailureDescription": "You don’t accomplish what you wanted, and there are consequences.",
     "IlluminatedWorldsRoller.RollMixedSuccess": "Mixed Success",
-    "IlluminatedWorldsRoller.RollMixedSuccessDescription": "Mixed Success Description",
+    "IlluminatedWorldsRoller.RollMixedSuccessDescription": "You accomplish what you wanted, but it comes at a cost.",
     "IlluminatedWorldsRoller.RollSuccess": "Success",
-    "IlluminatedWorldsRoller.RollSuccessDescription": "You do it.",
+    "IlluminatedWorldsRoller.RollSuccessDescription": "You get what you want without any major unintended consequences.",
     "IlluminatedWorldsRoller.RollCriticalSuccess": "Critical Success!",
-    "IlluminatedWorldsRoller.RollCriticalSuccessDescription": "You do it with <strong>increased effect</strong>.",
+    "IlluminatedWorldsRoller.RollCriticalSuccessDescription": "You get what you want, and something extra.",
 
     "IlluminatedWorldsRoller.RollZeroMode": "Zero Dice rolled - rolling two dice and taking the lowest",
 
     "IlluminatedWorldsRoller.RollHighStakes": "High Stakes",
-    "IlluminatedWorldsRoller.RollHighStakesDescription": "High Stakes Description",
+    "IlluminatedWorldsRoller.RollHighStakesDescription": "Because this roll is high stakes, failure will likely result in taking damage or finding yourself in a very difficult position.",
     "IlluminatedWorldsRoller.RollNormalStakes": "Normal Stakes",
-    "IlluminatedWorldsRoller.RollStandardEffectDescription": "Normal Stakes Description",
     "IlluminatedWorldsRoller.RollLowStakes": "Low Stakes",
-    "IlluminatedWorldsRoller.RollLowStakesDescription": "Low Stakes Description",
+    "IlluminatedWorldsRoller.RollLowStakesDescription": "Because this roll is low stakes, failure won't likely put you in immediate peril.",
 
     "IlluminatedWorldsRoller.actionsName": "Actions",
     "IlluminatedWorldsRoller.actionsHint": "A comma separated list of the actions used by your system",

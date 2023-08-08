@@ -304,18 +304,18 @@ class IlluminatedWorldsRoller {
         switch (stakes) {
             case "low":
                 stakesLocalize = (
-                    "IlluminatedWorldsRoller.StakesLow"
+                    "IlluminatedWorldsRoller.RollLowStakes"
                 );
                 break;
             case "high":
                 stakesLocalize = (
-                    "IlluminatedWorldsRoller.StakesHigh"
+                    "IlluminatedWorldsRoller.RollHighStakes"
                 );
                 break;
             case "normal":
             default:
                 stakesLocalize = (
-                    "IlluminatedWorldsRoller.StakesNormal"
+                    "IlluminatedWorldsRoller.RollNormalStakes"
                 );
         }
 

@@ -55,6 +55,12 @@
         <div class="description">
             <p>
                 {{{localize "IlluminatedWorldsRoller.RollFailureDescription"}}}
+
+                {{#if (eq stakes "low")}}
+                    {{{localize "IlluminatedWorldsRoller.RollLowStakesDescription}}}
+                {{else if (eq stakes "high")}}
+                    {{{localize "IlluminatedWorldsRoller.RollHighStakesDescription}}}
+                {{/if}}
             </p>
         </div>
     {{/if}}
