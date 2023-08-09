@@ -59,9 +59,9 @@
     "IlluminatedWorldsRoller.gildedAppearanceName": "Gilded Die Appearance",
     "IlluminatedWorldsRoller.gildedAppearanceHint": "For Dice So Nice! users, the theme to use for gilded dice",
 
-    "IlluminatedWorldsRoller.gildedIsBestResult": "(And because the best result is from a gilded die, make sure to reclaim one drive point!)",
-    "IlluminatedWorldsRoller.gildedIsOnlyResult": "(And because you used a result rolled on a guilded die, make sure to reclaim one drive point!)",
-    "IlluminatedWorldsRoller.gildedIsSameResult": "(You rolled the same result on gilded and standard dice. You should reclaim one drive point!)",
-    "IlluminatedWorldsRoller.gildedMixedIsWorseThanResult": "(Or you can opt to take a <span class='mixed'>Mixed Success</span> from the gilded die and reclaim one drive point!)",
-    "IlluminatedWorldsRoller.gildedFailureIsWorseThanResult": "(Or you can opt to take a <span class='failure'>Failure</span> from the gilded die and reclaim one drive point!)"
+    "IlluminatedWorldsRoller.gildedIsBestResult": "(And because the best result is from a gilded die, make sure to reclaim one drive point.)",
+    "IlluminatedWorldsRoller.gildedIsOnlyResult": "(And because you used a result rolled on a guilded die, make sure to reclaim one drive point.)",
+    "IlluminatedWorldsRoller.gildedIsSameResult": "(You rolled the same result on gilded and standard dice. You should reclaim one drive point.)",
+    "IlluminatedWorldsRoller.gildedMixedIsWorseThanResult": "(Or you can opt to take a <span class='mixed'>Mixed Success</span> from the gilded die and reclaim one drive point.)",
+    "IlluminatedWorldsRoller.gildedFailureIsWorseThanResult": "(Or you can opt to take a <span class='failure'>Failure</span> from the gilded die and reclaim one drive point.)"
 }
