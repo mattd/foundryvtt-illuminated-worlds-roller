@@ -5,7 +5,7 @@ A generic dice roller for Illuminated Worlds games played on FoundryVTT. Based o
 ## Installation
 Install manually via the module's [manifest URL](https://raw.githubusercontent.com/mattd/foundryvtt-illuminated-worlds-roller/main/module/module.json):
 ```
-https://raw.githubusercontent.com/mattd/foundryvtt-simple-fog/main/module/module.json
+https://raw.githubusercontent.com/mattd/foundryvtt-illuminated-worlds-roller/main/module/module.json
 ```
 
 ## Usage
