@@ -6,7 +6,11 @@
     {{/if}}
 
     <div class="chat-label-small label-stripe-chat-small">
-        {{{localize positionLocalize}}} | {{{localize effectLocalize}}}
+        {{{localize stakesLocalize}}}
+        {{#if (ne gildedMode "none")}}
+            &bull;
+            {{{localize "IlluminatedWorldsRoller.Gilded"}}}
+        {{/if}}
     </div>
 
     {{#if zeroMode}}
@@ -21,12 +25,29 @@
         </div>
         <div class="description">
             <p>
-                {{{localize "IlluminatedWorldsRoller.RollDoWithIncreasedEffect"}}}
+                {{{localize "IlluminatedWorldsRoller.RollCriticalSuccessDescription"}}}
             </p>
-            {{#if (eq position "desperate")}}
-                <p>
-                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
-                </p>
+            {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-only-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsOnlyResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-is-same-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-mixed-is-worse-than-result")}}
+                     <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedMixedIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-failure-is-worse-than-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedFailureIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
             {{/if}}
         </div>
     {{/if}}
@@ -37,34 +58,57 @@
         </div>
         <div class="description">
             <p>
-                {{{localize "IlluminatedWorldsRoller.RollDo"}}}
+                {{{localize "IlluminatedWorldsRoller.RollSuccessDescription"}}}
             </p>
-            {{#if (eq position "desperate")}}
-                <p>
-                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
-                </p>
+            {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-only-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsOnlyResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-is-same-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-mixed-is-worse-than-result")}}
+                     <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedMixedIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-failure-is-worse-than-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedFailureIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
             {{/if}}
         </div>
     {{/if}}
 
-    {{#if (eq rollOutcome "partial-success")}}
+    {{#if (eq rollOutcome "mixed-success")}}
         <div class="die {{rollOutcome}}">
-            {{localize "IlluminatedWorldsRoller.RollPartialSuccess"}}
+            {{localize "IlluminatedWorldsRoller.RollMixedSuccess"}}
         </div>
         <div class="description">
             <p>
-                {{#if (eq position "controlled")}}
-                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPositionControlled"}}}
-                {{else if (eq position "risky")}}
-                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPositionRisky"}}}
-                {{else}}
-                    {{{localize "IlluminatedWorldsRoller.RollPartialSuccessPosition"}}}
-                {{/if}}
+                {{{localize "IlluminatedWorldsRoller.RollMixedSuccessDescription"}}}
             </p>
-            {{#if (eq position "desperate")}}
-                <p>
-                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
-                </p>
+            {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-only-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsOnlyResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-is-same-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-failure-is-worse-than-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedFailureIsWorseThanResult"}}}
+                    </p>
+                {{/if}}
             {{/if}}
         </div>
     {{/if}}
@@ -75,18 +119,25 @@
         </div>
         <div class="description">
             <p>
-                {{#if (eq position "controlled")}}
-                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionControlled"}}}
-                {{else if (eq position "risky")}}
-                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionRisky"}}}
-                {{else}}
-                    {{{localize "IlluminatedWorldsRoller.RollFailurePositionDesperate"}}}
+                {{{localize "IlluminatedWorldsRoller.RollFailureDescription"}}}
+
+                {{#if (eq stakes "low")}}
+                    {{{localize "IlluminatedWorldsRoller.RollLowStakesDescription"}}}
+                {{else if (eq stakes "high")}}
+                    {{{localize "IlluminatedWorldsRoller.RollHighStakesDescription"}}}
                 {{/if}}
             </p>
-            {{#if (eq position "desperate")}}
-                <p>
-                    {{{localize "IlluminatedWorldsRoller.RollXP"}}}
-                </p>
+            {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-only-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsOnlyResult"}}}
+                    </p>
+                {{/if}}
+                {{#if (eq gildedResultType "gilded-is-same-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.gildedIsSameResult"}}}
+                    </p>
+                {{/if}}
             {{/if}}
         </div>
     {{/if}}
@@ -94,16 +145,22 @@
     <ol class="dice-rolls">
         {{#each this.rolls}}
             {{#if this.result}}
-                <li class="roll die illuminated-worlds-d6 {{../this.color}}"
-                    {{#if (eq this.result 6)}}
-                        style="color: green;"
-                    {{else if (eq this.result 3)}}
-                        style="color: red;"
-                    {{else if (eq this.result 2)}}
-                        style="color: red;"
-                    {{else if (eq this.result 1)}}
-                        style="color: red;"
-                    {{/if}}
+                <li class="
+                    roll
+                    die
+                    illuminated-worlds-d6
+                    {{#if this.gilded}}gilded{{/if}}
+                    {{../this.color}}
+                "
+                {{#if (eq this.result 6)}}
+                    style="color: green;"
+                {{else if (eq this.result 3)}}
+                    style="color: red;"
+                {{else if (eq this.result 2)}}
+                    style="color: red;"
+                {{else if (eq this.result 1)}}
+                    style="color: red;"
+                {{/if}}
                 >
                     {{{this.result}}}
                 </li>

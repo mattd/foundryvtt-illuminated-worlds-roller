@@ -1,225 +1,240 @@
 :root {
-  --almostwhite: #eeefff;
-  --almostblack: #191813;
-  --mediumgray: #999;
-  --darkgreen: #008000;
-  --brightgreen: #12a012;
-  --mediumblue: #04578f;
-  --bluegray: #92a6ad;
+    --almostwhite: #eeefff;
+    --almostblack: #191813;
+    --mediumgray: #999;
+    --darkgreen: #008000;
+    --brightgreen: #12a012;
+    --mediumblue: #04578f;
+    --bluegray: #92a6ad;
 }
 * .illuminated-worlds-die-tooltip header {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 * .illuminated-worlds-die-tooltip ul {
-  list-style: none;
+    list-style: none;
 }
 * .illuminated-worlds-die-tooltip .dialog-buttons {
-	margin-top: 5px;
+	  margin-top: 5px;
 }
 * .illuminated-worlds-die-tooltip textarea {
-  margin-top: 10px;
-  margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 * .illuminated-worlds-die-tooltip td {
-  padding: 5px;
+    padding: 5px;
 }
 * .illuminated-worlds-die-tooltip section {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 * section > * .illuminated-worlds-die-tooltip:not(.label-stripe) {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 * section > * .illuminated-worlds-die-tooltip:not(.label-stripe):last-child {
-  margin-right: 0px;
+    margin-right: 0px;
 }
 * .illuminated-worlds-die-tooltip section .grow-one {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 * .illuminated-worlds-die-tooltip section .grow-two {
-  flex-grow: 2;
+    flex-grow: 2;
 }
 * .illuminated-worlds-die-tooltip section.experience {
-  margin-bottom: 0px;
-  justify-content: center;
+    margin-bottom: 0px;
+    justify-content: center;
 }
 * .illuminated-worlds-die-tooltip nav {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 * .illuminated-worlds-die-tooltip .editor,
 * .illuminated-worlds-die-tooltip .editor-content {
-  min-height: 280px;
+    min-height: 280px;
 }
 * .illuminated-worlds-die-tooltip .flex-horizontal {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 * .illuminated-worlds-die-tooltip .flex-vertical {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 * .illuminated-worlds-die-tooltip .black-label {
-  background-color: var(--almostblack);
-  color: var(--almostwhite);
-  font-size: 21px;
-  text-align: center;
-  padding: 0px 5px;
-  height: 30px !important;
-  text-transform: capitalize;
+    background-color: var(--almostblack);
+    color: var(--almostwhite);
+    font-size: 21px;
+    text-align: center;
+    padding: 0px 5px;
+    height: 30px !important;
+    text-transform: capitalize;
 }
 * .illuminated-worlds-die-tooltip .gray-label {
-  background-color: var(--mediumgray);
-  color: var(--almostblack);
-  font-size: 21px;
-  text-align: center;
-  padding: 0px 5px;
-  height: 30px !important;
-  text-transform: capitalize;
+    background-color: var(--mediumgray);
+    color: var(--almostblack);
+    font-size: 21px;
+    text-align: center;
+    padding: 0px 5px;
+    height: 30px !important;
+    text-transform: capitalize;
 }
 * .illuminated-worlds-die-tooltip .chat-label {
-  background-color: var(--almostblack);
-  color: var(--almostwhite);
-  font-size: 21px;
-  text-align: center;
-  padding: 0px 5px;
-  height: 30px !important;
-  text-transform: capitalize;
+    background-color: var(--almostblack);
+    color: var(--almostwhite);
+    font-size: 21px;
+    text-align: center;
+    padding: 0px 5px;
+    height: 30px !important;
+    text-transform: capitalize;
 }
 * .illuminated-worlds-die-tooltip .chat-label-small {
-  background-color: var(--mediumgray);
-  color: var(--almostblack);
-  font-size: small;
-  text-align: center;
-  padding: 3px 5px;
-  height: 20px !important;
+    background-color: var(--mediumgray);
+    color: var(--almostblack);
+    font-size: small;
+    text-align: center;
+    padding: 3px 5px;
+    height: 20px !important;
 }
 * .illuminated-worlds-die-tooltip .chat-label-small-red {
-  background-color: red;
-  color: var(--almostblack);
-  font-size: small;
-  text-align: center;
-  padding: 3px 5px;
+    background-color: red;
+    color: var(--almostblack);
+    font-size: small;
+    text-align: center;
+    padding: 3px 5px;
 }
 * .illuminated-worlds-die-tooltip .label-stripe {
-  text-transform: uppercase;
-  background-color: var(--almostblack);
-  color: var(--almostwhite);
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--almostblack);
+    color: var(--almostwhite);
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    font-weight: bold;
 }
 * .illuminated-worlds-die-tooltip .label-stripe .hoverlink {
-  cursor: pointer;
-  transition: filter 0.1s;
+    cursor: pointer;
+    transition: filter 0.1s;
 }
 * .illuminated-worlds-die-tooltip .label-stripe .hoverlink:hover {
-  filter: brightness(0.8);
-  opacity: 0.9;
+    filter: brightness(0.8);
+    opacity: 0.9;
 }
 * .illuminated-worlds-die-tooltip .label-stripe-red {
-  text-transform: uppercase;
-  background-color: var(--almostblack);
-  color: red;
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--almostblack);
+    color: red;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    font-weight: bold;
 }
 * .illuminated-worlds-die-tooltip .label-stripe-gray {
-  text-transform: uppercase;
-  background-color: var(--bluegray);
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--bluegray);
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    font-weight: bold;
 }
 * .illuminated-worlds-die-tooltip .label-stripe-chat {
-  text-transform: uppercase;
-  background-color: var(--almostblack);
-  color: var(--almostwhite);
-  margin-bottom: 10px;
-  position: relative;
-  padding-top: 3px;
-  display: flex;
-  font-weight: bold;
-  margin: 0;
+    text-transform: uppercase;
+    background-color: var(--almostblack);
+    color: var(--almostwhite);
+    margin-bottom: 10px;
+    position: relative;
+    padding-top: 3px;
+    display: flex;
+    font-weight: bold;
+    margin: 0;
 }
 * .illuminated-worlds-die-tooltip .label-stripe-chat-small {
-  text-transform: capitalize;
-  background-color: var(--mediumgray);
-  color: var(--almostblack);
-  position: relative;
-  padding-top: 3px;
-  display: flex;
-  font-weight: bold;
+    text-transform: capitalize;
+    background-color: var(--mediumgray);
+    color: var(--almostblack);
+    position: relative;
+    padding-top: 3px;
+    display: flex;
+    font-weight: bold;
 }
 * .illuminated-worlds-die-tooltip .label-stripe-chat-small-red {
-  text-transform: capitalize;
-  background-color: red;
-  color: var(--almostblack);
-  position: relative;
-  padding-top: 3px;
-  display: flex;
-  font-weight: bold;
+    text-transform: capitalize;
+    background-color: red;
+    color: var(--almostblack);
+    position: relative;
+    padding-top: 3px;
+    display: flex;
+    font-weight: bold;
 }
 * .illuminated-worlds-die-tooltip .description {
-  font-style: italic;
+    font-style: italic;
+}
+* .illuminated-worlds-die-tooltip .description span.failure {
+    font-weight: bold;
+    color: red;
+}
+* .illuminated-worlds-die-tooltip .description span.mixed {
+    font-weight: bold;
 }
 * .illuminated-worlds-die-tooltip .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 200px;
-  background-color: var(--almostblack);
-  color: var(--almostwhite);
-  text-align: center;
-  padding: 5px;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 9999;
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--almostblack);
+    color: var(--almostwhite);
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 9999;
 }
 * .illuminated-worlds-die-tooltip .tooltip:hover .tooltiptext {
-  visibility: visible;
+    visibility: visible;
 }
 * .illuminated-worlds-die-tooltip .die {
-  font-weight: bold;
-  text-transform: capitalize;
-  font-size: large;
-  margin-top: 10px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: large;
+    margin-top: 10px;
 }
 * .illuminated-worlds-die-tooltip .die.great,
 * .illuminated-worlds-die-tooltip .die.critical-resist,
 * .illuminated-worlds-die-tooltip .die.critical-success {
-  color: var(--brightgreen);
+    color: var(--brightgreen);
 }
 * .illuminated-worlds-die-tooltip .die.nodamage,
 * .illuminated-worlds-die-tooltip .die.standard,
 * .illuminated-worlds-die-tooltip .die.resist,
 * .illuminated-worlds-die-tooltip .die.success {
-  color: var(--darkgreen);
+    color: var(--darkgreen);
 }
 * .illuminated-worlds-die-tooltip .die.malfunction,
 * .illuminated-worlds-die-tooltip .die.limited,
 * .illuminated-worlds-die-tooltip .die.partial-success {
-  color: var(--mediumblue);
+    color: var(--mediumblue);
 }
 * .illuminated-worlds-die-tooltip .die.damaged,
 * .illuminated-worlds-die-tooltip .die.poor,
 * .illuminated-worlds-die-tooltip .die.failure {
-  color: red;
+    color: red;
 }
 * .dice-tooltip.illuminated-worlds-die-tooltip .dice-rolls .roll.die.illuminated-worlds-d6.black {
-  background-image: url(../icons/d6-black.svg) !important;
-  color: var(--almostwhite);
+    background-image: url(../icons/d6-black.svg) !important;
+    color: var(--almostwhite);
+    &.gilded {
+        background-image: url(../icons/d6-black-gilded.svg) !important;
+    }
 }
 * .dice-tooltip.illuminated-worlds-die-tooltip .dice-rolls .roll.die.illuminated-worlds-d6.gray {
-  background-image: url(../icons/d6-grey.svg) !important;
+    background-image: url(../icons/d6-grey.svg) !important;
+    &.gilded {
+        background-image: url(../icons/d6-grey-gilded.svg) !important;
+    }
 }
+
+
