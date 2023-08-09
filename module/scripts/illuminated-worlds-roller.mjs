@@ -238,6 +238,7 @@ class IlluminatedWorldsRoller {
         };
 
         if (
+            rollOutcome == "critical-success" ||
             gildedOutcome == "success" ||
             outcomeRanks[gildedOutcome] > outcomeRanks[rollOutcome]
         ) {
