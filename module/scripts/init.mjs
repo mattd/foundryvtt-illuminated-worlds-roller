@@ -61,10 +61,10 @@ Hooks.once("setup", () => {
         "illuminated-worlds-roller", "maxStandardDiceCount",
         {
             "name": game.i18n.localize(
-                "IlluminatedWorldsRoller.maxStandardDiceCountName"
+                "IlluminatedWorldsRoller.MaxStandardDiceCountName"
             ),
             "hint": game.i18n.localize(
-                "IlluminatedWorldsRoller.maxStandardDiceCountHint"
+                "IlluminatedWorldsRoller.MaxStandardDiceCountHint"
             ),
             "scope": "world",
             "config": true,
@@ -77,10 +77,10 @@ Hooks.once("setup", () => {
         "illuminated-worlds-roller", "defaultStandardDiceCount",
         {
             "name": game.i18n.localize(
-                "IlluminatedWorldsRoller.defaultStandardDiceCountName"
+                "IlluminatedWorldsRoller.DefaultStandardDiceCountName"
             ),
             "hint": game.i18n.localize(
-                "IlluminatedWorldsRoller.defaultStandardDiceCountHint"
+                "IlluminatedWorldsRoller.DefaultStandardDiceCountHint"
             ),
             "scope": "world",
             "config": true,
@@ -92,8 +92,8 @@ Hooks.once("setup", () => {
     game.settings.register(
         "illuminated-worlds-roller", "actions",
         {
-            "name": game.i18n.localize("IlluminatedWorldsRoller.actionsName"),
-            "hint": game.i18n.localize("IlluminatedWorldsRoller.actionsHint"),
+            "name": game.i18n.localize("IlluminatedWorldsRoller.ActionsName"),
+            "hint": game.i18n.localize("IlluminatedWorldsRoller.ActionsHint"),
             "scope": "world",
             "config": true,
             "type": String,
@@ -109,10 +109,10 @@ Hooks.once("setup", () => {
         "illuminated-worlds-roller", "defaultStakes",
         {
             "name": game.i18n.localize(
-                "IlluminatedWorldsRoller.defaultStakesName"
+                "IlluminatedWorldsRoller.DefaultStakesName"
             ),
             "hint": game.i18n.localize(
-                "IlluminatedWorldsRoller.defaultStakesHint"
+                "IlluminatedWorldsRoller.DefaultStakesHint"
             ),
             "scope": "world",
             "config": true,
@@ -136,10 +136,10 @@ Hooks.once("setup", () => {
         "illuminated-worlds-roller", "gildedAppearance",
         {
             "name": game.i18n.localize(
-                "IlluminatedWorldsRoller.gildedAppearanceName"
+                "IlluminatedWorldsRoller.GildedAppearanceName"
             ),
             "hint": game.i18n.localize(
-                "IlluminatedWorldsRoller.gildedAppearanceHint"
+                "IlluminatedWorldsRoller.GildedAppearanceHint"
             ),
             "scope": "world",
             "config": true,
