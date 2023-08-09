@@ -28,11 +28,11 @@ class IlluminatedWorldsRoller {
      * @returns none
      */
     async showRoller() {
-        const maxDice = game.settings.get(
-            "illuminated-worlds-roller", "maxDiceCount"
+        const maxStandardDice = game.settings.get(
+            "illuminated-worlds-roller", "maxStandardDiceCount"
         );
-        const defaultDiceCount = game.settings.get(
-            "illuminated-worlds-roller", "defaultDiceCount"
+        const defaultStandardDiceCount = game.settings.get(
+            "illuminated-worlds-roller", "defaultStandardDiceCount"
         );
         const actions = game.settings.get(
             "illuminated-worlds-roller", "actions"
@@ -54,14 +54,16 @@ class IlluminatedWorldsRoller {
                         </label>
                         <select id="standard-dice" name="standard-dice">
                             ${
-                                Array(maxDice + 1).fill().map((item, i) => {
+                                Array(
+                                    maxStandardDice + 1
+                                ).fill().map((item, i) => {
                                     return `<option value="${i}">${i}d</option>`
                                 }).join('')
                             }
                         </select>
                         <script>
                             $('#standard-dice').find(
-                                'option[value="${defaultDiceCount}"]'
+                                'option[value="${defaultStandardDiceCount}"]'
                             ).prop(
                                 "selected", "selected"
                             );
@@ -275,6 +277,14 @@ class IlluminatedWorldsRoller {
         return rolls;
     }
 
+    /**
+     * Get a string representing the interpreted state of gilded dice
+     *
+     * @param {array} rolls an array of roll results
+     * @param {string} rollOutcome a string describing the overall outcome
+     * @param {string} gildedMode a string desribing the mix of dice
+     * @returns {string} a string representing the state of gilded results
+     */
     getGildedResultType(rolls, rollOutcome, gildedMode) {
         if (gildedMode === "none") { return; }
 
