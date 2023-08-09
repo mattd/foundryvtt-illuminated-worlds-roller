@@ -1,1 +1,5 @@
+11.0.1 Bug fixes, drop support for Foundry < v11
+
+11.0.0 First official release, v11 support
+
 0.1.0 Initial alpha/development release

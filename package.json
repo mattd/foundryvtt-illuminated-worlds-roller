@@ -1,6 +1,6 @@
 {
     "name": "foundryvtt-illuminated-worlds-roller",
-    "version": "11.0.0",
+    "version": "11.0.1",
     "description": "Provides a generic dice roller for Illuminated Worlds games",
     "main": "module/scripts/init.js",
     "scripts": {

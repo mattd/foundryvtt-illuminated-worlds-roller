@@ -14,7 +14,7 @@ This module adds a roll icon at the bottom of the taskbar. Set your dice pool, a
 
 There are module settings for controlling:
 
-* color of the dice icons in the chat message
+* color of dice icons in the chat message
 * the max number of standard dice in a roll
 * the actions used in your system
 * the default number of standard dice initially selected
