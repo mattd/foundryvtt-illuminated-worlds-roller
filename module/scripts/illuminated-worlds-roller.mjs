@@ -1,28 +1,5 @@
 class IlluminatedWorldsRoller {
     /**
-     * Gets Foundry major and minor versions.
-     *
-     * @returns {{major: number, minor: number}} version object
-     */
-    getFoundryVersion(game) {
-        let versionParts;
-
-        if (game.version) {
-            versionParts = game.version.split('.');
-            return {
-                major: parseInt(versionParts[0]),
-                minor: parseInt(versionParts[1])
-            };
-        }
-
-        versionParts = game.data.version.split('.');
-        return {
-            major: parseInt(versionParts[1]),
-            minor: parseInt(versionParts[2])
-        };
-    }
-
-    /**
      * Creates and shows the roller popup.
      *
      * @returns none
@@ -205,49 +182,6 @@ class IlluminatedWorldsRoller {
     }
 
     /**
-     * Rolls the Dice.
-     *
-     * @param {string} attribute arbitrary label for the roll
-     * @param {int} diceAmount number of dice to roll
-     * @param {string} stakes stakes
-     * @returns none
-     */
-    async roll(
-        attribute = "",
-        standardDice = 0,
-        gildedDice = 0,
-        stakes = "normal"
-    ) {
-        let zeroMode = false;
-
-        if (standardDice < 0) { standardDice = 0; }
-        if (gildedDice < 0) { gildedDice = 0; }
-
-        if (standardDice === 0 && gildedDice === 0) {
-            zeroMode = true; standardDice = 2;
-        }
-
-        const gildedMode = this.getGildedMode(standardDice, gildedDice);
-
-        const r = new Roll(
-            this.getRollFormula(
-                standardDice,
-                gildedDice,
-                gildedMode
-            ), {}
-        );
-
-        if (this.getFoundryVersion(game).major > 7) {
-            await r.evaluate({async: true});
-        } else {
-            r.roll();
-        }
-        return await this.showChatRollMessage(
-            r, zeroMode, gildedMode, attribute, stakes
-        );
-    }
-
-    /**
      * Annotates roll results with gilded state.
      *
      * @param {Roll} r array of rolls
@@ -316,6 +250,46 @@ class IlluminatedWorldsRoller {
             }
             return "gilded-failure-is-worse-than-result";
         }
+    }
+
+    /**
+     * Rolls the Dice.
+     *
+     * @param {string} attribute arbitrary label for the roll
+     * @param {int} diceAmount number of dice to roll
+     * @param {string} stakes stakes
+     * @returns none
+     */
+    async roll(
+        attribute = "",
+        standardDice = 0,
+        gildedDice = 0,
+        stakes = "normal"
+    ) {
+        let zeroMode = false;
+
+        if (standardDice < 0) { standardDice = 0; }
+        if (gildedDice < 0) { gildedDice = 0; }
+
+        if (standardDice === 0 && gildedDice === 0) {
+            zeroMode = true; standardDice = 2;
+        }
+
+        const gildedMode = this.getGildedMode(standardDice, gildedDice);
+
+        const r = new Roll(
+            this.getRollFormula(
+                standardDice,
+                gildedDice,
+                gildedMode
+            ), {}
+        );
+
+        await r.evaluate({async: true});
+
+        return await this.showChatRollMessage(
+            r, zeroMode, gildedMode, attribute, stakes
+        );
     }
 
     /**
@@ -390,11 +364,7 @@ class IlluminatedWorldsRoller {
             roll: r
         };
 
-        if (this.getFoundryVersion(game).major > 7) {
-            return CONFIG.ChatMessage.documentClass.create(message, {});
-        } else {
-            return CONFIG.ChatMessage.entityClass.create(message, {});
-        }
+        return CONFIG.ChatMessage.documentClass.create(message, {});
     }
 
     /**

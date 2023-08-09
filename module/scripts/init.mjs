@@ -10,14 +10,12 @@ Hooks.on("renderSceneControls", (app, html) => {
             <i class="fas fa-dice"></i>
         </li>
     `);
+
     control.on("click", async function () {
         await game.illuminatedWorldsRoller.showRoller();
     });
-    if (isNewerVersion(game.version, '9.220')) {
-        html.children().first().append(control);
-    } else {
-        html.append(control);
-    }
+
+    html.children().first().append(control);
 });
 
 Hooks.once("setup", () => {

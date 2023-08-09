@@ -15,11 +15,11 @@
         }
     ],
     "version": "11.0.0",
-    "minimumCoreVersion": "0.7.5",
+    "minimumCoreVersion": "11",
     "compatibleCoreVersion": "11",
     "compatibility": {
-        "minimum": "0.7.5",
-        "verified": "11"
+        "minimum": "11",
+        "verified": "11.307"
     },
 
     "styles": ["styles/illuminated-worlds-roller.css"],
