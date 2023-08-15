@@ -59,6 +59,6 @@
     "IlluminatedWorldsRoller.GildedIsBestResult": "(And because the best result is from a gilded die, make sure to reclaim one drive point.)",
     "IlluminatedWorldsRoller.GildedIsOnlyResult": "(And because you used a result rolled on a gilded die, make sure to reclaim one drive point.)",
     "IlluminatedWorldsRoller.GildedIsSameResult": "(The result from the dice pool and your gilded result are the same. You should reclaim one drive point.)",
-    "IlluminatedWorldsRoller.GildedMixedIsWorseThanResult": "(Or you can opt to take a <span class='mixed'>Mixed Success</span> from the gilded die and reclaim one drive point.)",
+    "IlluminatedWorldsRoller.GildedMixedIsWorseThanResult": "(Or you can opt to take a <span class='mixed-success'>Mixed Success</span> from the gilded die and reclaim one drive point.)",
     "IlluminatedWorldsRoller.GildedFailureIsWorseThanResult": "(Or you can opt to take a <span class='failure'>Failure</span> from the gilded die and reclaim one drive point.)"
 }
