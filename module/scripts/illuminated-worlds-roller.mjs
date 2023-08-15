@@ -6,37 +6,40 @@ class IlluminatedWorldsRoller {
      */
     async showRoller() {
         const maxStandardDice = game.settings.get(
-            "illuminated-worlds-roller", "maxStandardDiceCount"
+            "illuminated-worlds-roller",
+            "maxStandardDiceCount"
         );
         const defaultStandardDiceCount = game.settings.get(
-            "illuminated-worlds-roller", "defaultStandardDiceCount"
+            "illuminated-worlds-roller",
+            "defaultStandardDiceCount"
         );
         const actions = game.settings.get(
-            "illuminated-worlds-roller", "actions"
+            "illuminated-worlds-roller",
+            "actions"
         );
         const defaultStakes = game.settings.get(
-            "illuminated-worlds-roller", "defaultStakes"
+            "illuminated-worlds-roller",
+            "defaultStakes"
         );
 
         new Dialog({
-            title: `${game.i18n.localize('IlluminatedWorldsRoller.RollTitle')}`,
+            title: game.i18n.localize("IlluminatedWorldsRoller.RollTitle"),
             content: `
-                <h2>${game.i18n.localize('IlluminatedWorldsRoller.Roll')}</h2>
+                <h2>${game.i18n.localize("IlluminatedWorldsRoller.Roll")}</h2>
                 <form>
                     <div class="form-group">
                         <label>
                             ${game.i18n.localize(
-                                'IlluminatedWorldsRoller.StandardDice'
+                                "IlluminatedWorldsRoller.StandardDice"
                             )}:
                         </label>
                         <select id="standard-dice" name="standard-dice">
-                            ${
-                                Array(
-                                    maxStandardDice + 1
-                                ).fill().map((item, i) => {
-                                    return `<option value="${i}">${i}d</option>`
-                                }).join('')
-                            }
+                            ${Array(maxStandardDice + 1)
+                                .fill()
+                                .map((item, i) => {
+                                    return `<option value="${i}">${i}d</option>`;
+                                })
+                                .join("")}
                         </select>
                         <script>
                             $('#standard-dice').find(
@@ -49,7 +52,7 @@ class IlluminatedWorldsRoller {
                     <div class="form-group">
                         <label>
                             ${game.i18n.localize(
-                                'IlluminatedWorldsRoller.GildedDice'
+                                "IlluminatedWorldsRoller.GildedDice"
                             )}:
                         </label>
                         <select id="gilded-dice" name="gilded-dice">
@@ -62,42 +65,38 @@ class IlluminatedWorldsRoller {
                     <div class="form-group">
                         <label>
                             ${game.i18n.localize(
-                                'IlluminatedWorldsRoller.Action'
+                                "IlluminatedWorldsRoller.Action"
                             )}:
                         </label>
                         <select id="action" name="action">
                             <option value=""></option>
-                            ${
-                                actions.split(',').map(item => {
-                                    return `
-                                        <option value="${item}">
-                                            ${item}
-                                        </option>
-                                    `;
-                                })
-                            }
+                            ${actions.split(",").map(item => {
+                                return `<option value="${item}">
+                                    ${item}
+                                </option>`;
+                            })}
                         </select>
                     </div>
                     <div class="form-group">
                         <label>
                             ${game.i18n.localize(
-                                'IlluminatedWorldsRoller.Stakes'
+                                "IlluminatedWorldsRoller.Stakes"
                             )}:
                         </label>
                         <select id="stakes" name="stakes">
                             <option value="low">
                                 ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.StakesLow'
+                                    "IlluminatedWorldsRoller.StakesLow"
                                 )}
                             </option>
                             <option value="normal">
                                 ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.StakesNormal'
+                                    "IlluminatedWorldsRoller.StakesNormal"
                                 )}
                             </option>
                             <option value="high">
                                 ${game.i18n.localize(
-                                    'IlluminatedWorldsRoller.StakesHigh'
+                                    "IlluminatedWorldsRoller.StakesHigh"
                                 )}
                             </option>
                         </select>
@@ -114,8 +113,8 @@ class IlluminatedWorldsRoller {
             buttons: {
                 yes: {
                     icon: "<i class='fas fa-check'></i>",
-                    label: game.i18n.localize('IlluminatedWorldsRoller.Roll'),
-                    callback: async (html) => {
+                    label: game.i18n.localize("IlluminatedWorldsRoller.Roll"),
+                    callback: async html => {
                         const standardDice = parseInt(
                             html.find('[name="standard-dice"]')[0].value
                         );
@@ -134,10 +133,10 @@ class IlluminatedWorldsRoller {
                 },
                 no: {
                     icon: "<i class='fas fa-times'></i>",
-                    label: game.i18n.localize('IlluminatedWorldsRoller.Close'),
-                },
+                    label: game.i18n.localize("IlluminatedWorldsRoller.Close")
+                }
             },
-            default: "yes",
+            default: "yes"
         }).render(true);
     }
 
@@ -169,7 +168,8 @@ class IlluminatedWorldsRoller {
      */
     getRollFormula(standardDice, gildedDice, gildedMode) {
         const gildedAppearance = game.settings.get(
-            "illuminated-worlds-roller", "gildedAppearance"
+            "illuminated-worlds-roller",
+            "gildedAppearance"
         );
 
         if (gildedMode == "none") {
@@ -197,11 +197,10 @@ class IlluminatedWorldsRoller {
             });
         }
         if (gildedMode != "none") {
-            const results = (
-                gildedMode == "without-standard-dice" ?
-                    r.terms[0].results :
-                    r.terms[2].results
-            );
+            const results =
+                gildedMode == "without-standard-dice"
+                    ? r.terms[0].results
+                    : r.terms[2].results;
             results.forEach(result => {
                 result.gilded = true;
                 rolls.push(result);
@@ -220,7 +219,9 @@ class IlluminatedWorldsRoller {
      * @returns {string} a string representing the state of gilded results
      */
     getGildedResultType(rolls, rollOutcome, gildedMode) {
-        if (gildedMode === "none") { return; }
+        if (gildedMode === "none") {
+            return;
+        }
 
         if (gildedMode === "without-standard-dice") {
             return "gilded-is-only-result";
@@ -269,27 +270,33 @@ class IlluminatedWorldsRoller {
     ) {
         let zeroMode = false;
 
-        if (standardDice < 0) { standardDice = 0; }
-        if (gildedDice < 0) { gildedDice = 0; }
+        if (standardDice < 0) {
+            standardDice = 0;
+        }
+        if (gildedDice < 0) {
+            gildedDice = 0;
+        }
 
         if (standardDice === 0 && gildedDice === 0) {
-            zeroMode = true; standardDice = 2;
+            zeroMode = true;
+            standardDice = 2;
         }
 
         const gildedMode = this.getGildedMode(standardDice, gildedDice);
 
         const r = new Roll(
-            this.getRollFormula(
-                standardDice,
-                gildedDice,
-                gildedMode
-            ), {}
+            this.getRollFormula(standardDice, gildedDice, gildedMode),
+            {}
         );
 
-        await r.evaluate({async: true});
+        await r.evaluate({ async: true });
 
         return await this.showChatRollMessage(
-            r, zeroMode, gildedMode, attribute, stakes
+            r,
+            zeroMode,
+            gildedMode,
+            attribute,
+            stakes
         );
     }
 
@@ -311,7 +318,8 @@ class IlluminatedWorldsRoller {
     ) {
         const speaker = ChatMessage.getSpeaker();
         const color = game.settings.get(
-            "illuminated-worlds-roller", "backgroundColor"
+            "illuminated-worlds-roller",
+            "backgroundColor"
         );
 
         const rolls = this.getAnnotatedRollResults(r, gildedMode);
@@ -327,20 +335,14 @@ class IlluminatedWorldsRoller {
         let stakesLocalize = "";
         switch (stakes) {
             case "low":
-                stakesLocalize = (
-                    "IlluminatedWorldsRoller.RollLowStakes"
-                );
+                stakesLocalize = "IlluminatedWorldsRoller.RollLowStakes";
                 break;
             case "high":
-                stakesLocalize = (
-                    "IlluminatedWorldsRoller.RollHighStakes"
-                );
+                stakesLocalize = "IlluminatedWorldsRoller.RollHighStakes";
                 break;
             case "normal":
             default:
-                stakesLocalize = (
-                    "IlluminatedWorldsRoller.RollNormalStakes"
-                );
+                stakesLocalize = "IlluminatedWorldsRoller.RollNormalStakes";
         }
 
         const renderedTemplate = await renderTemplate(
@@ -383,7 +385,9 @@ class IlluminatedWorldsRoller {
         // Sort roll values from lowest to highest.
         const sortedRolls = rolls.map(i => i.result).sort();
 
-        let useDie, prevUseDie, rollOutcome = "failure";
+        let useDie,
+            prevUseDie,
+            rollOutcome = "failure";
 
         if (sortedRolls[0] === 6 && zeroMode) {
             rollOutcome = "success";

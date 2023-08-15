@@ -179,8 +179,9 @@
     font-weight: bold;
     color: red;
 }
-* .illuminated-worlds-die-tooltip .description span.mixed {
+* .illuminated-worlds-die-tooltip .description span.mixed-success {
     font-weight: bold;
+    color: var(--mediumblue);
 }
 * .illuminated-worlds-die-tooltip .tooltip .tooltiptext {
     visibility: hidden;
@@ -202,24 +203,15 @@
     font-size: large;
     margin-top: 10px;
 }
-* .illuminated-worlds-die-tooltip .die.great,
-* .illuminated-worlds-die-tooltip .die.critical-resist,
 * .illuminated-worlds-die-tooltip .die.critical-success {
     color: var(--brightgreen);
 }
-* .illuminated-worlds-die-tooltip .die.nodamage,
-* .illuminated-worlds-die-tooltip .die.standard,
-* .illuminated-worlds-die-tooltip .die.resist,
 * .illuminated-worlds-die-tooltip .die.success {
     color: var(--darkgreen);
 }
-* .illuminated-worlds-die-tooltip .die.malfunction,
-* .illuminated-worlds-die-tooltip .die.limited,
-* .illuminated-worlds-die-tooltip .die.partial-success {
+* .illuminated-worlds-die-tooltip .die.mixed-success {
     color: var(--mediumblue);
 }
-* .illuminated-worlds-die-tooltip .die.damaged,
-* .illuminated-worlds-die-tooltip .die.poor,
 * .illuminated-worlds-die-tooltip .die.failure {
     color: red;
 }
