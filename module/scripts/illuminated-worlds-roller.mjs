@@ -191,7 +191,10 @@ class IlluminatedWorldsRoller {
     getAnnotatedRollResults(r, gildedRollType) {
         const rolls = [];
 
-        if (gildedRollType == "none" || gildedRollType == "with-standard-dice") {
+        if (
+            gildedRollType == "none" ||
+            gildedRollType == "with-standard-dice"
+        ) {
             r.terms[0].results.forEach(result => {
                 rolls.push(result);
             });
