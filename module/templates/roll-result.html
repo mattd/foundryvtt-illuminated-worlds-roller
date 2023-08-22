@@ -28,6 +28,11 @@
                 {{{localize "IlluminatedWorldsRoller.RollCriticalSuccessDescription"}}}
             </p>
             {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-best-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.GildedIsBestResult"}}}
+                    </p>
+                {{/if}}
                 {{#if (eq gildedResultType "gilded-is-only-result")}}
                     <p>
                         {{{localize "IlluminatedWorldsRoller.GildedIsOnlyResult"}}}
