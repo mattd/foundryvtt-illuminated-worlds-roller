@@ -7,7 +7,7 @@
 
     <div class="chat-label-small label-stripe-chat-small">
         {{{localize stakesLocalize}}}
-        {{#if (ne gildedMode "none")}}
+        {{#if (ne gildedRollType "none")}}
             &bull;
             {{{localize "IlluminatedWorldsRoller.Gilded"}}}
         {{/if}}
@@ -28,6 +28,11 @@
                 {{{localize "IlluminatedWorldsRoller.RollCriticalSuccessDescription"}}}
             </p>
             {{#if gildedResultType}}
+                {{#if (eq gildedResultType "gilded-is-best-result")}}
+                    <p>
+                        {{{localize "IlluminatedWorldsRoller.GildedIsBestResult"}}}
+                    </p>
+                {{/if}}
                 {{#if (eq gildedResultType "gilded-is-only-result")}}
                     <p>
                         {{{localize "IlluminatedWorldsRoller.GildedIsOnlyResult"}}}

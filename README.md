@@ -28,6 +28,6 @@ Alternatively, you can set up macros and skip the popup UI altogether.
 * `action`: any string of your choosing (defaults to "")
 * `standardDice`: total number of standard dice to roll (defaults to 0)
 * `gildedDice`: total number of gilded dice to roll (defaults to 0)
-* `effect`: either low, normal, or high (defaults to normal if you enter anything else)
+* `stakes`: either low, normal, or high (defaults to normal if you enter anything else)
 
 Based on concepts from Candela Obscura (found at http://www.darringtonpress.com/candela/), product of Darrington Press, LLC, designed and written by Spenser Starke and Rowan Hall.

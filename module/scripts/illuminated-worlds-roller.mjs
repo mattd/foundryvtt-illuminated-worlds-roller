@@ -145,9 +145,9 @@ class IlluminatedWorldsRoller {
      *
      * @param {int} standardDice number of non-gilded dice to roll
      * @param {int} gildedDice number of gilded dice to roll
-     * @param {string} gildedMode string representing a roll's gilded state
+     * @returns {string} indicates the mix of dice to roll
      */
-    getGildedMode(standardDice, gildedDice) {
+    getGildedRollType(standardDice, gildedDice) {
         if (gildedDice > 0) {
             if (standardDice) {
                 return "with-standard-dice";
@@ -163,20 +163,20 @@ class IlluminatedWorldsRoller {
      *
      * @param {int} standardDice number of non-gilded dice to roll
      * @param {int} gildedDice number of gilded dice to roll
-     * @param {string} gildedMode indicates mix of standard and gilded dice
+     * @param {string} gildedRollType indicates mix of standard and gilded dice
      * @returns {string} the roll formula for the given roll
      */
-    getRollFormula(standardDice, gildedDice, gildedMode) {
+    getRollFormula(standardDice, gildedDice, gildedRollType) {
         const gildedAppearance = game.settings.get(
             "illuminated-worlds-roller",
             "gildedAppearance"
         );
 
-        if (gildedMode == "none") {
+        if (gildedRollType == "none") {
             return `${standardDice}d6`;
-        } else if (gildedMode == "with-standard-dice") {
+        } else if (gildedRollType == "with-standard-dice") {
             return `${standardDice}d6 + ${gildedDice}d6[${gildedAppearance}]`;
-        } else if (gildedMode == "without-standard-dice") {
+        } else if (gildedRollType == "without-standard-dice") {
             return `${gildedDice}d6[${gildedAppearance}]`;
         }
     }
@@ -185,20 +185,23 @@ class IlluminatedWorldsRoller {
      * Annotates roll results with gilded state.
      *
      * @param {Roll} r array of rolls
-     * @param {string} gildedMode whether to treat as a gilded roll
+     * @param {string} gildedRollType whether to treat as a gilded roll
      * @returns {Array} rolls an annotated array of roll results
      */
-    getAnnotatedRollResults(r, gildedMode) {
+    getAnnotatedRollResults(r, gildedRollType) {
         const rolls = [];
 
-        if (gildedMode == "none" || gildedMode == "with-standard-dice") {
+        if (
+            gildedRollType == "none" ||
+            gildedRollType == "with-standard-dice"
+        ) {
             r.terms[0].results.forEach(result => {
                 rolls.push(result);
             });
         }
-        if (gildedMode != "none") {
+        if (gildedRollType != "none") {
             const results =
-                gildedMode == "without-standard-dice"
+                gildedRollType == "without-standard-dice"
                     ? r.terms[0].results
                     : r.terms[2].results;
             results.forEach(result => {
@@ -211,19 +214,19 @@ class IlluminatedWorldsRoller {
     }
 
     /**
-     * Get a string representing the interpreted state of gilded dice
+     * Get a string representing the interpreted state of gilded dice.
      *
      * @param {array} rolls an array of roll results
      * @param {string} rollOutcome a string describing the overall outcome
-     * @param {string} gildedMode a string desribing the mix of dice
+     * @param {string} gildedRollType a string desribing the mix of dice
      * @returns {string} a string representing the state of gilded results
      */
-    getGildedResultType(rolls, rollOutcome, gildedMode) {
-        if (gildedMode === "none") {
+    getGildedResultType(rolls, rollOutcome, gildedRollType) {
+        if (gildedRollType === "none") {
             return;
         }
 
-        if (gildedMode === "without-standard-dice") {
+        if (gildedRollType === "without-standard-dice") {
             return "gilded-is-only-result";
         }
 
@@ -282,10 +285,10 @@ class IlluminatedWorldsRoller {
             standardDice = 2;
         }
 
-        const gildedMode = this.getGildedMode(standardDice, gildedDice);
+        const gildedRollType = this.getGildedRollType(standardDice, gildedDice);
 
         const r = new Roll(
-            this.getRollFormula(standardDice, gildedDice, gildedMode),
+            this.getRollFormula(standardDice, gildedDice, gildedRollType),
             {}
         );
 
@@ -294,7 +297,7 @@ class IlluminatedWorldsRoller {
         return await this.showChatRollMessage(
             r,
             zeroMode,
-            gildedMode,
+            gildedRollType,
             attribute,
             stakes
         );
@@ -305,14 +308,14 @@ class IlluminatedWorldsRoller {
      *
      * @param {Roll} r array of rolls
      * @param {Boolean} zeroMode whether to treat as if 0d
-     * @param {Boolean} gildedMode whether to treat as a gilded roll
+     * @param {string} gildedRollType a string describing the mix of dice
      * @param {string} attribute arbitrary label for the roll
      * @param {string} stakes stakes
      */
     async showChatRollMessage(
         r,
         zeroMode,
-        gildedMode,
+        gildedRollType,
         attribute = "",
         stakes = ""
     ) {
@@ -322,14 +325,14 @@ class IlluminatedWorldsRoller {
             "backgroundColor"
         );
 
-        const rolls = this.getAnnotatedRollResults(r, gildedMode);
+        const rolls = this.getAnnotatedRollResults(r, gildedRollType);
 
         const rollOutcome = this.getRollOutcome(rolls, zeroMode);
 
         const gildedResultType = this.getGildedResultType(
             rolls,
             rollOutcome,
-            gildedMode
+            gildedRollType
         );
 
         let stakesLocalize = "";
@@ -354,7 +357,7 @@ class IlluminatedWorldsRoller {
                 stakes,
                 stakesLocalize,
                 zeroMode,
-                gildedMode,
+                gildedRollType,
                 gildedResultType,
                 color
             }
